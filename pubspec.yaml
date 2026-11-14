@@ -13,3 +13,13 @@ dependencies:
 
 flutter:
   uses-material-design: true
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_launcher_icons: "^0.13.1"
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "file_0000000038088211916ab67d58dc2ca1.png"
+  min_sdk_android: 21
