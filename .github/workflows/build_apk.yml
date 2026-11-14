@@ -24,17 +24,19 @@ jobs:
           channel: 'stable'
 
       - name: Create Android Project Structure
-        run: flutter create . --org com.talkwiz.apps --platforms=android
+        run: flutter create . --org com.talkwiz
 
       - name: Install Dependencies
         run: flutter pub get
-        - name: Generate App Icon
+
+      - name: Generate App Icon
         run: dart run flutter_launcher_icons:main
-        - name: BuilBuild
+
+      - name: Build APK
         run: flutter build apk --release
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-release
-          path: build/app/outputs/flutter-apk/app-release.apk
+          path: build/app/outputs/flutter-apk/app-release.apkstesteobuat
