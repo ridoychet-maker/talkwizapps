@@ -28,10 +28,9 @@ jobs:
 
       - name: Install Dependencies
         run: flutter pub get
-
-      - name: Generate App Icon
-        run: flutter pub run flutter_launcher_icons:main
-      - name: Build APK
+        - name: Generate App Icon
+        run: dart run flutter_launcher_icons:main
+        - name: BuilBuild
         run: flutter build apk --release
 
       - name: Upload APK
