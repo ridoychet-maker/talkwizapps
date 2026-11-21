@@ -24,8 +24,7 @@ jobs:
           channel: 'stable'
 
       - name: Create Android Project Structure
-        run: flutter create . --org com.talkwiz
-
+        run: flutter create . --platforms=android --org com.talkwiz
       - name: Install Dependencies
         run: flutter pub get
 
