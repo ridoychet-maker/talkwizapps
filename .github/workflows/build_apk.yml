@@ -25,6 +25,10 @@ jobs:
 
       - name: Create Android Project Structure
         run: flutter create . --platforms=android --org com.talkwiz
+- name: Add Firebase Configuration
+        run: |
+          mkdir -p android/app
+          cp google-services.json android/app/google-services.json
       - name: Install Dependencies
         run: flutter pub get
 
