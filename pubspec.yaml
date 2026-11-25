@@ -14,7 +14,7 @@ dependencies:
   firebase_auth: ^5.3.1
 
 flutter:
-  uses-material-design: true
+  uses-material-design: false
 
 dev_dependencies:
   flutter_test:
@@ -23,6 +23,6 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: "launcher_icon"
-  ios: true
+  ios: false
   image_path: "file_0000000038088211916ab67d58dc2ca1.png"
   min_sdk_android: 21
