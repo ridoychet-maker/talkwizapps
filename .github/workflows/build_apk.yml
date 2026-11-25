@@ -65,6 +65,12 @@ jobs:
       - name: Build APK
         run: flutter build apk --release
 
+      - name: Print Debug Keystore SHA-1 & SHA-256
+        run: |
+          if [ -f "$HOME/.android/debug.keystore" ]; then
+            keytool -list -v -keystore "$HOME/.android/debug.keystore" -alias androiddebugkey -storepass android -keypass android | grep -E "SHA1:|SHA256:" || true
+          fi
+
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
