@@ -24,12 +24,37 @@ jobs:
           channel: 'stable'
 
       - name: Create Android Project Structure
-        run: flutter create . --platforms=android --org com.talkwiz
+        run: flutter create . --platforms=android --org com.example
 
       - name: Add Firebase Configuration
         run: |
           mkdir -p android/app
           cp google-services.json android/app/google-services.json
+          python3 -c '
+          import glob
+
+          for p in glob.glob("android/settings.gradle*"):
+              with open(p, "r") as f:
+                  s = f.read()
+              if "com.google.gms.google-services" not in s:
+                  if p.endswith(".kts"):
+                      s = s.replace("plugins {", "plugins {\n    id(\"com.google.gms.google-services\") version \"4.4.2\" apply false", 1)
+                  else:
+                      s = s.replace("plugins {", "plugins {\n    id \"com.google.gms.google-services\" version \"4.4.2\" apply false", 1)
+                  with open(p, "w") as f:
+                      f.write(s)
+
+          for p in glob.glob("android/app/build.gradle*"):
+              with open(p, "r") as f:
+                  g = f.read()
+              if "com.google.gms.google-services" not in g:
+                  if p.endswith(".kts"):
+                      g = g.replace("plugins {", "plugins {\n    id(\"com.google.gms.google-services\")", 1)
+                  else:
+                      g = g.replace("plugins {", "plugins {\n    id \"com.google.gms.google-services\"", 1)
+                  with open(p, "w") as f:
+                      f.write(g)
+          '
 
       - name: Install Dependencies
         run: flutter pub get
