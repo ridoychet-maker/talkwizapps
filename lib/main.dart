@@ -284,10 +284,7 @@ class ChatContact {
   );
 }
 
-const contacts = <ChatContact>[
-  ChatContact('Ahon Rikay', 'Hey! How are you?', '9:12 AM', Colors.orange),
-  ChatContact('Ratul Hasan', 'Okay bro 👍', 'Yesterday', Colors.blue),
-];
+const contacts = <ChatContact>[];
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -433,7 +430,7 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget buildChats() {
     final visibleContacts = contacts.where((contact) {
       if (selectedFilter == 'Favourites ⭐️') {
-        return contact.name == 'Ahon Rikay';
+        return false;
       }
       if (selectedFilter == 'Groups 👥') {
         return false;
@@ -485,7 +482,14 @@ class _HomeScreenState extends State<HomeScreen> {
         const SizedBox(height: 10),
         Expanded(
           child: visibleContacts.isEmpty
-              ? const Center(child: Text('No groups yet'))
+              ? Center(
+                  child: Text(
+                    selectedFilter == 'Groups 👥'
+                        ? 'No groups yet'
+                        : 'No chats yet',
+                    style: const TextStyle(color: Colors.grey),
+                  ),
+                )
               : ListView.builder(
                   itemCount: visibleContacts.length,
                   itemBuilder: (_, index) {
