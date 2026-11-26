@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "920397748266",
+    "project_id": "talkwizapps",
+    "storage_bucket": "talkwizapps.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:920397748266:android:b9db51ddfe2f0b6a7a4b53",
+        "android_client_info": {
+          "package_name": "com.example.talkwizapps"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs5FohuWMugf05yc7vNKVbXkjF9GMq9t8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
